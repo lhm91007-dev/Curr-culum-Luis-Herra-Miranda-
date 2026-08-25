@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículum Luis Alonso Herra</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      background-color: #0b0b0b;
+    }
+    #bgCanvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: -1;
+    }
+    header {
+      text-align: center;
+      padding: 20px;
+      background: rgba(10, 10, 10, 0.85);
+      border-bottom: 2px solid #ff3333;
+    }
+    
+    /* Botón flotante y general de retroceso estilo multiplataforma */
+    .btn-regresar {
+      background: linear-gradient(135deg, #ff3333, #cc0000);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 10px rgba(255, 51, 51, 0.4);
+      transition: all 0.3s ease;
+      margin: 10px 0;
+    }
+    .btn-regresar:hover {
+      background: linear-gradient(135deg, #e60000, #990000);
+      transform: translateY(-2px);
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    nav button {
+      background: #0077ff;
+      border: none;
+      padding: 10px 18px;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 119, 255, 0.3);
+      transition: all 0.3s;
+    }
+    nav button:hover {
+      background: #005bb5;
+      transform: translateY(-2px);
+    }
+    section {
+      display: none;
+      padding: 25px;
+      background: rgba(15, 15, 15, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin: 20px auto;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .contact-icons a {
+      font-size: 15px;
+      color: white;
+      text-decoration: none;
+      background: rgba(0, 119, 255, 0.2);
+      border: 1px solid #0077ff;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+    .contact-icons a:hover {
+      background: rgba(0, 119, 255, 0.5);
+    }
+    .contact-icons a.fb-btn {
+      background: rgba(255, 51, 51, 0.2);
+      border-color: #ff3333;
+    }
+    .contact-icons a.fb-btn:hover {
+      background: rgba(255, 51, 51, 0.5);
+    }
+    .software-list {
+      list-style: none;
+      padding: 0;
+    }
+    .software-list li {
+      margin-bottom: 12px;
+    }
+    .software-list a {
+      display: inline-block;
+      background: #0077ff;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      box-sizing: border-box;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .software-list a:hover {
+      background: #005bb5;
+      transform: scale(1.02);
+    }
+    #translateBtn {
+      background: #28a745;
+      margin-top: 15px;
+      border: none;
+      padding: 8px 15px;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    #translateBtn:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bgCanvas"></canvas>
+  <header>
+    <h1>Currículum de Luis Alonso Herra Miranda</h1>
+    <nav>
+      <button onclick="toggleSection('perfil')">Perfil</button>
+      <button onclick="toggleSection('experiencia')">Experiencia</button>
+      <button onclick="toggleSection('habilidades')">Habilidades Técnicas</button>
+      <button onclick="toggleSection('formacion')">Formación</button>
+      <button onclick="toggleSection('blandas')">Habilidades Blandas</button>
+      <button onclick="toggleSection('software')">Software</button>
+    </nav>
+    <div class="contact-icons">
+      <a href="https://wa.me/50664680539" target="_blank">📱 WhatsApp</a>
+      <a href="tel:+50664680539">📞 Teléfono</a>
+      <a href="mailto:lhm91007@gmail.com">✉️ Email</a>
+      <a href="https://www.facebook.com/share/1D1UwLMTJp/" target="_blank" class="fb-btn">📘 Facebook</a>
+    </div>
+    <br>
+    <button id="translateBtn" onclick="googleTranslateElementInit()">🌐 Traducir</button>
+    <div id="google_translate_element" style="margin-top: 10px;"></div>
+  </header>
+
+  <section id="perfil" style="display: block;">
+    <h2>Perfil Profesional</h2>
+    <p>Técnico especializado en Informática Empresarial y Contabilidad con enfoque híbrido en soporte técnico avanzado y desarrollo digital...</p>
+  </section>
+
+  <section id="experiencia">
+    <button class="btn-regresar" onclick="toggleSection('perfil')">⬅ Volver al Inicio</button>
+    <h2>Experiencia Laboral</h2>
+    <p><strong>Administrador y Desarrollador</strong> en Proyecto-Mulltidigitalcr (2021-2026)...</p>
+    <p><strong>Auxiliar de Auditoría</strong> en Grupo VMA (2025-2026)...</p>
+    <p><strong>Vendedor Retail</strong> en Liberty-Claro (2025)...</p>
+    <p><strong>Auxiliar de Canales Digitales</strong> en Siman (2023-2024)...</p>
+    <p><strong>Auxiliar Contable</strong> en Bufet Los Rojas (2016)...</p>
+  </section>
+
+  <section id="habilidades">
+    <button class="btn-regresar" onclick="toggleSection('perfil')">⬅ Volver al Inicio</button>
+    <h2>Habilidades Técnicas</h2>
+    <ul>
+      <li>IA y Automatización</li>
+      <li>IT & Redes</li>
+      <li>Excel Avanzado</li>
+      <li>Diseño Digital</li>
+      <li>Idiomas: Español (Nativo), Inglés (Básico/Técnico)</li>
+    </ul>
+  </section>
+
+  <section id="formacion">
+    <button class="btn-regresar" onclick="toggleSection('perfil')">⬅ Volver al Inicio</button>
+    <h2>Formación Académica</h2>
+    <p>Técnico en Informática Empresarial | CTP Carlos Luis Fallas (2024)</p>
+    <p>Técnico Contable | CTP Carlos Luis Fallas (2016)</p>
+    <p>Auxiliar contable | INA Alajuela</p>
+    <p>Técnico Operante en Computadoras | INA Alajuela</p>
+    <p>Sociología (3er año) | Universidad Nacional (UNA)</p>
+  </section>
+
+  <section id="blandas">
+    <button class="btn-regresar" onclick="toggleSection('perfil')">⬅ Volver al Inicio</button>
+    <h2>Habilidades Blandas</h2>
+    <ul>
+      <li>Comunicación Asertiva y Trabajo en Equipo</li>
+      <li>Aprendizaje acelerado de nuevas tecnologías</li>
+      <li>Resolución de conflictos y excelencia en el servicio</li>
+    </ul>
+  </section>
+
+  <section id="software">
+    <button class="btn-regresar" onclick="toggleSection('perfil')">⬅ Volver al Inicio</button>
+    <h2>Sistemas y Aplicaciones Desarrolladas</h2>
+    <p>Explore los diferentes sistemas web interactivos creados:</p>
+    <ul class="software-list" style="display: flex; flex-direction: column; align-items: center;">
+      <li><a href="https://lhm91007-dev.github.io/Inventario/" target="_blank">📦 Sistema de Inventario</a></li>
+      <li><a href="https://lhm91007-dev.github.io/facturaci-n-/" target="_blank">🧾 Sistema de Facturación</a></li>
+      <li><a href="https://lhm91007-dev.github.io/Administraci-n-mull/" target="_blank">⚙️ Administración Mull</a></li>
+      <li><a href="https://lhm91007-dev.github.io/Mull-conciliacion/" target="_blank">📊 Mull Conciliación</a></li>
+      <li><a href="https://lhm91007-dev.github.io/Ai.-data/" target="_blank">🤖 AI Data</a></li>
+      <li><a href="https://lhm91007-dev.github.io/Proveecr/" target="_blank">🌐 Proveecr</a></li>
+      <li><a href="https://lhm91007-dev.github.io/Mull--venta/" target="_blank">🛒 Mull Venta</a></li>
+      <li><a href="https://lhm91007-dev.github.io/Mull-conta/" target="_blank">📑 Mull Conta</a></li>
+      <li><a href="https://lhm91007-dev.github.io/Planilla/?fbclid=IwdGRjcAT6sd9jbGNrBPqx3HBkb2YFZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMzUwNjg1NTMxNzI4AAEexSweQMiNqm-duNDJXk_g8v62pn_9WD55oxAqFCAggP62Mg_m2mWlDrpv_Jk_aem_L6XnqmwXzaN3xrORMNHYDw" target="_blank">💼 Sistema de Planilla</a></li>
+    </ul>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // Fondo 3D animado con Three.js
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({canvas: document.getElementById('bgCanvas')});
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+    const material = new THREE.MeshBasicMaterial({color: 0x0077ff, wireframe: true});
+    const torusKnot = new THREE.Mesh(geometry, material);
+    scene.add(torusKnot);
+    camera.position.z = 50;
+    
+    function animate() {
+      requestAnimationFrame(animate);
+      torusKnot.rotation.x += 0.01;
+      torusKnot.rotation.y += 0.01;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Mostrar/Ocultar secciones y subir la vista con scroll suave
+    function toggleSection(id) {
+      document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Google Translate
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'es'}, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
